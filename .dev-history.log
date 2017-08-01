@@ -1,1 +1,1 @@
-2017-06-20 20:35:37 +0800 | feat(logger): structured request block event format
+2017-08-01 19:51:39 +0800 | fix(config): validate regex compilation on startup
