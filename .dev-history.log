@@ -1,1 +1,1 @@
-2017-11-10 16:07:52 +0800 | fix(config): validate regex compilation on startup
+2017-11-16 17:48:53 +0800 | refactor(config): normalize rule matching options
