@@ -1,1 +1,1 @@
-2018-01-10 20:53:44 +0800 | feat(py-monitor): normalize listing url and strip query params
+2018-01-10 22:37:12 +0800 | chore(ci): run go vet and unit tests on push
