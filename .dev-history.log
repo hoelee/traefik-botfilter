@@ -1,1 +1,1 @@
-2018-04-16 20:40:16 +0800 | test(cache): verify concurrent read/write under race detector
+2018-04-17 11:41:14 +0800 | feat(shell-sync): add retry backoff for remote sync
