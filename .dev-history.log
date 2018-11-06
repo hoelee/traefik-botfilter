@@ -1,1 +1,1 @@
-2018-11-06 13:27:37 +0800 | test(cache): verify concurrent read/write under race detector
+2018-11-06 14:10:48 +0800 | docs(platform): update module layout and usage examples
