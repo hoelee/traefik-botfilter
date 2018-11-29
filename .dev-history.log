@@ -1,1 +1,1 @@
-2018-11-28 22:17:28 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
+2018-11-29 14:14:17 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
