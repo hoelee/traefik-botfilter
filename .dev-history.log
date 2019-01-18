@@ -1,1 +1,1 @@
-2019-01-17 20:31:43 +0800 | feat(java-cache): configure Caffeine TTL and max weight
+2019-01-18 11:01:28 +0800 | refactor(util): extract header normalization helper
