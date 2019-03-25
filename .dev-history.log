@@ -1,1 +1,1 @@
-2019-03-25 12:28:52 +0800 | docs(platform): update module layout and usage examples
+2019-03-25 12:29:02 +0800 | feat(java-cache): configure Caffeine TTL and max weight
