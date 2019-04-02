@@ -1,1 +1,1 @@
-2019-04-02 17:36:19 +0800 | test(cache): verify concurrent read/write under race detector
+2019-04-02 19:30:51 +0800 | chore(ci): run go vet and unit tests on push
