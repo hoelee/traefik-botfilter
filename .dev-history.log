@@ -1,1 +1,1 @@
-2019-04-15 23:09:44 +0800 | test(botfilter): cover encoded path traversal edge cases
+2019-04-19 09:40:58 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
