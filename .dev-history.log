@@ -1,1 +1,1 @@
-2019-05-08 15:22:55 +0800 | test(botfilter): cover encoded path traversal edge cases
+2019-05-08 16:49:15 +0800 | chore(ci): run go vet and unit tests on push
