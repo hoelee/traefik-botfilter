@@ -1,1 +1,1 @@
-2019-05-16 18:57:48 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
+2019-05-16 20:01:29 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
