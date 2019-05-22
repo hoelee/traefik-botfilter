@@ -1,1 +1,1 @@
-2019-05-22 12:40:14 +0800 | fix(matcher): avoid false positive on healthcheck probes
+2019-05-22 14:54:01 +0800 | chore(ci): run go vet and unit tests on push
