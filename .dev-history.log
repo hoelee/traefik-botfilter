@@ -1,1 +1,1 @@
-2019-07-17 16:39:33 +0800 | perf(matcher): precompile lowercase substring signatures
+2019-07-17 22:41:20 +0800 | feat(py-monitor): normalize listing url and strip query params
