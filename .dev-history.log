@@ -1,1 +1,1 @@
-2019-07-18 15:23:18 +0800 | feat(shell-sync): add retry backoff for remote sync
+2019-07-20 09:18:09 +0800 | chore(ci): run go vet and unit tests on push
