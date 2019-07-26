@@ -1,1 +1,1 @@
-2019-07-26 12:21:50 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
+2019-07-26 12:36:45 +0800 | chore(ci): run go vet and unit tests on push
