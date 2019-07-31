@@ -1,1 +1,1 @@
-2019-07-31 20:14:01 +0800 | feat(config): support allowlist CIDR overrides
+2019-07-31 22:33:19 +0800 | chore(ci): run go vet and unit tests on push
