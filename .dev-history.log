@@ -1,1 +1,1 @@
-2019-09-01 19:39:05 +0800 | docs(platform): update module layout and usage examples
+2019-09-01 20:13:10 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
