@@ -1,1 +1,1 @@
-2019-09-10 12:19:40 +0800 | refactor(util): extract header normalization helper
+2019-09-10 16:10:22 +0800 | fix(java-cache): reject blank auth header before token parse
