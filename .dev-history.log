@@ -1,1 +1,1 @@
-2019-10-01 20:15:02 +0800 | feat(botfilter): wire middleware chain with cache lookup
+2019-10-01 21:59:47 +0800 | feat(config): support allowlist CIDR overrides
