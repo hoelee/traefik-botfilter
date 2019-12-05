@@ -1,1 +1,1 @@
-2019-12-05 14:19:34 +0800 | feat(botfilter): wire middleware chain with cache lookup
+2019-12-05 17:05:39 +0800 | fix(py-monitor): handle missing currency symbol in price parser
