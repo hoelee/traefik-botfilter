@@ -1,1 +1,1 @@
-2019-12-11 15:01:13 +0800 | refactor(util): extract header normalization helper
+2019-12-11 22:53:07 +0800 | chore(ci): run go vet and unit tests on push
