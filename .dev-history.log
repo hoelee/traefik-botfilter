@@ -1,1 +1,1 @@
-2020-01-13 17:40:07 +0800 | feat(shell-sync): add retry backoff for remote sync
+2020-01-15 09:21:12 +0800 | perf(logger): buffer json log serialization
