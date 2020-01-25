@@ -1,1 +1,1 @@
-2020-01-25 18:39:59 +0800 | docs(platform): update module layout and usage examples
+2020-01-25 20:35:23 +0800 | feat(shell-sync): add retry backoff for remote sync
