@@ -1,1 +1,1 @@
-2020-03-18 19:02:38 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
+2020-03-18 19:06:49 +0800 | docs(platform): update module layout and usage examples
