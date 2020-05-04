@@ -1,1 +1,1 @@
-2020-05-04 13:17:26 +0800 | feat(py-monitor): normalize listing url and strip query params
+2020-05-04 20:37:45 +0800 | perf(logger): buffer json log serialization
