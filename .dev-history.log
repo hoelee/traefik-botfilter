@@ -1,1 +1,1 @@
-2020-05-26 11:52:39 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
+2020-05-26 17:00:35 +0800 | perf(logger): buffer json log serialization
