@@ -1,1 +1,1 @@
-2020-06-09 20:21:15 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
+2020-06-09 22:25:57 +0800 | fix(py-monitor): handle missing currency symbol in price parser
