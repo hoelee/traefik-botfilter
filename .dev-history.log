@@ -1,1 +1,1 @@
-2020-06-23 16:47:51 +0800 | chore(ci): run go vet and unit tests on push
+2020-06-23 19:19:51 +0800 | feat(py-monitor): normalize listing url and strip query params
