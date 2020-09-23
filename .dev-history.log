@@ -1,1 +1,1 @@
-2020-09-23 18:13:02 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
+2020-09-23 20:09:14 +0800 | perf(logger): buffer json log serialization
