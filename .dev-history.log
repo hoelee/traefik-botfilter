@@ -1,1 +1,1 @@
-2020-10-12 16:26:34 +0800 | feat(py-monitor): normalize listing url and strip query params
+2020-10-12 22:42:04 +0800 | fix(py-monitor): handle missing currency symbol in price parser
