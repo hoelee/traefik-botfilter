@@ -1,1 +1,1 @@
-2020-11-11 10:56:39 +0800 | feat(botfilter): wire middleware chain with cache lookup
+2020-11-11 12:48:47 +0800 | chore(ci): run go vet and unit tests on push
