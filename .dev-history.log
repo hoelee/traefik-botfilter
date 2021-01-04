@@ -1,1 +1,1 @@
-2021-01-04 14:15:59 +0800 | refactor(cache): shard eviction lock by ip prefix
+2021-01-04 17:10:00 +0800 | chore(ci): run go vet and unit tests on push
