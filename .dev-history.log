@@ -1,1 +1,1 @@
-2021-01-21 20:23:03 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
+2021-01-21 21:59:40 +0800 | perf(matcher): precompile lowercase substring signatures
