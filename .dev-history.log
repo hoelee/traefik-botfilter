@@ -1,1 +1,1 @@
-2021-03-18 21:31:24 +0800 | feat(config): support allowlist CIDR overrides
+2021-03-18 22:38:17 +0800 | perf(logger): buffer json log serialization
