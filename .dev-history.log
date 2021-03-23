@@ -1,1 +1,1 @@
-2021-03-23 19:07:15 +0800 | test(botfilter): cover encoded path traversal edge cases
+2021-03-23 20:20:31 +0800 | perf(matcher): precompile lowercase substring signatures
