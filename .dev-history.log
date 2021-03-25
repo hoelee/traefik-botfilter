@@ -1,1 +1,1 @@
-2021-03-24 20:41:24 +0800 | feat(shell-sync): add retry backoff for remote sync
+2021-03-25 10:31:09 +0800 | feat(py-monitor): normalize listing url and strip query params
