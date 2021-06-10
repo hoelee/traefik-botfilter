@@ -1,1 +1,1 @@
-2021-06-10 19:55:37 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
+2021-06-10 20:41:10 +0800 | feat(config): support allowlist CIDR overrides
