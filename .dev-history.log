@@ -1,1 +1,1 @@
-2021-08-01 14:06:24 +0800 | chore(ci): run go vet and unit tests on push
+2021-08-01 14:37:02 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
