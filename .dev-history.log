@@ -1,1 +1,1 @@
-2021-08-25 19:26:24 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
+2021-08-26 12:22:28 +0800 | refactor(util): extract header normalization helper
