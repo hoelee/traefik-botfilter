@@ -1,1 +1,1 @@
-2021-09-20 10:05:19 +0800 | docs(platform): update module layout and usage examples
+2021-09-20 11:41:12 +0800 | fix(py-monitor): handle missing currency symbol in price parser
