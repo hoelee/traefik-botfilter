@@ -1,1 +1,1 @@
-2021-10-13 23:17:03 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
+2021-10-14 16:49:04 +0800 | feat(shell-sync): add retry backoff for remote sync
