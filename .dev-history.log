@@ -1,1 +1,1 @@
-2022-01-06 22:44:46 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
+2022-01-07 11:39:23 +0800 | feat(botfilter): wire middleware chain with cache lookup
