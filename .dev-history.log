@@ -1,1 +1,1 @@
-2022-01-11 21:39:32 +0800 | perf(logger): buffer json log serialization
+2022-01-12 13:28:14 +0800 | chore(ci): run go vet and unit tests on push
