@@ -1,1 +1,1 @@
-2022-03-24 11:09:44 +0800 | feat(config): support allowlist CIDR overrides
+2022-03-24 19:46:48 +0800 | perf(matcher): precompile lowercase substring signatures
