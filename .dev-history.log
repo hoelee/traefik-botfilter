@@ -1,1 +1,1 @@
-2022-04-20 21:15:19 +0800 | test(cache): verify concurrent read/write under race detector
+2022-04-20 22:30:55 +0800 | feat(java-cache): configure Caffeine TTL and max weight
