@@ -1,1 +1,1 @@
-2022-04-20 22:30:55 +0800 | feat(java-cache): configure Caffeine TTL and max weight
+2022-04-20 23:09:46 +0800 | feat(shell-sync): add retry backoff for remote sync
