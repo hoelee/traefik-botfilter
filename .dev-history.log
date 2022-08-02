@@ -1,1 +1,1 @@
-2022-08-01 20:22:03 +0800 | fix(java-cache): reject blank auth header before token parse
+2022-08-02 15:41:54 +0800 | feat(botfilter): wire middleware chain with cache lookup
