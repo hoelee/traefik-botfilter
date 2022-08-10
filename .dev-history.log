@@ -1,1 +1,1 @@
-2022-08-10 18:11:20 +0800 | perf(logger): buffer json log serialization
+2022-08-10 22:48:31 +0800 | fix(py-monitor): handle missing currency symbol in price parser
