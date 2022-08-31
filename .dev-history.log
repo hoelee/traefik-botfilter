@@ -1,1 +1,1 @@
-2022-08-31 15:51:54 +0800 | feat(shell-sync): add retry backoff for remote sync
+2022-08-31 18:52:10 +0800 | feat(shell-sync): add retry backoff for remote sync
