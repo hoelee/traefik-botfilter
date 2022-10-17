@@ -1,1 +1,1 @@
-2022-10-17 22:52:32 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
+2022-10-17 23:10:10 +0800 | perf(matcher): precompile lowercase substring signatures
