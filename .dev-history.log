@@ -1,1 +1,1 @@
-2022-10-25 09:11:42 +0800 | refactor(util): extract header normalization helper
+2022-10-25 11:40:03 +0800 | perf(logger): buffer json log serialization
