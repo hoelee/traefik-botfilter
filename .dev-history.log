@@ -1,1 +1,1 @@
-2022-11-24 14:54:45 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
+2022-11-24 17:29:30 +0800 | feat(java-cache): configure Caffeine TTL and max weight
