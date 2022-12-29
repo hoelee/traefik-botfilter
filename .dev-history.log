@@ -1,1 +1,1 @@
-2022-12-29 14:27:51 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
+2022-12-29 15:48:04 +0800 | fix(py-monitor): handle missing currency symbol in price parser
