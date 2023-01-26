@@ -1,1 +1,1 @@
-2023-01-26 19:34:47 +0800 | perf(matcher): precompile lowercase substring signatures
+2023-01-26 20:46:01 +0800 | chore(ci): run go vet and unit tests on push
