@@ -1,1 +1,1 @@
-2023-02-01 21:44:33 +0800 | feat(shell-sync): add retry backoff for remote sync
+2023-02-02 11:03:01 +0800 | perf(matcher): precompile lowercase substring signatures
