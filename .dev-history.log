@@ -1,1 +1,1 @@
-2023-03-20 22:17:44 +0800 | perf(matcher): precompile lowercase substring signatures
+2023-03-21 13:56:05 +0800 | perf(logger): buffer json log serialization
