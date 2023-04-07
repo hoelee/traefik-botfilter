@@ -1,1 +1,1 @@
-2023-04-07 20:30:17 +0800 | test(cache): verify concurrent read/write under race detector
+2023-04-07 21:01:18 +0800 | perf(matcher): precompile lowercase substring signatures
