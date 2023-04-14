@@ -1,1 +1,1 @@
-2023-04-14 11:57:12 +0800 | feat(config): support allowlist CIDR overrides
+2023-04-14 16:08:14 +0800 | feat(shell-sync): add retry backoff for remote sync
