@@ -1,1 +1,1 @@
-2023-04-27 14:09:16 +0800 | fix(matcher): avoid false positive on healthcheck probes
+2023-04-27 19:32:17 +0800 | perf(matcher): precompile lowercase substring signatures
