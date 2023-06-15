@@ -1,1 +1,1 @@
-2023-06-15 12:25:43 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
+2023-06-15 18:07:12 +0800 | test(botfilter): cover encoded path traversal edge cases
