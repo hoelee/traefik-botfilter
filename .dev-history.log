@@ -1,1 +1,1 @@
-2023-06-27 22:51:52 +0800 | chore(ci): run go vet and unit tests on push
+2023-06-28 10:35:25 +0800 | feat(java-cache): configure Caffeine TTL and max weight
