@@ -1,1 +1,1 @@
-2023-07-05 19:56:14 +0800 | perf(logger): buffer json log serialization
+2023-07-05 20:34:34 +0800 | feat(java-cache): configure Caffeine TTL and max weight
