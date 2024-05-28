@@ -1,1 +1,1 @@
-2024-05-28 17:39:12 +0800 | fix(java-cache): reject blank auth header before token parse
+2024-05-28 21:02:30 +0800 | chore(ci): run go vet and unit tests on push
