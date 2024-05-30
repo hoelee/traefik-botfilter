@@ -1,1 +1,1 @@
-2024-05-29 15:32:07 +0800 | fix(py-monitor): handle missing currency symbol in price parser
+2024-05-30 15:42:08 +0800 | chore(ci): run go vet and unit tests on push
