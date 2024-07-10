@@ -1,1 +1,1 @@
-2024-07-10 17:13:03 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
+2024-07-10 17:43:11 +0800 | feat(shell-sync): add retry backoff for remote sync
