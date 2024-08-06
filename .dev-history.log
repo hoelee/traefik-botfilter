@@ -1,1 +1,1 @@
-2024-08-06 12:03:43 +0800 | test(botfilter): cover encoded path traversal edge cases
+2024-08-06 16:32:29 +0800 | feat(botfilter): wire middleware chain with cache lookup
