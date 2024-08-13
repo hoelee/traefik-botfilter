@@ -1,1 +1,1 @@
-2024-08-13 11:12:58 +0800 | refactor(cache): shard eviction lock by ip prefix
+2024-08-13 14:51:37 +0800 | feat(java-cache): configure Caffeine TTL and max weight
