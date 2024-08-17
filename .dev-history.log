@@ -1,1 +1,1 @@
-2024-08-17 18:14:41 +0800 | feat(java-cache): configure Caffeine TTL and max weight
+2024-08-17 18:47:25 +0800 | feat(botfilter): wire middleware chain with cache lookup
