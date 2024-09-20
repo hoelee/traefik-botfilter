@@ -1,1 +1,1 @@
-2024-09-20 14:04:45 +0800 | feat(botfilter): wire middleware chain with cache lookup
+2024-09-20 15:24:09 +0800 | perf(logger): buffer json log serialization
