@@ -1,1 +1,1 @@
-2024-10-03 09:12:58 +0800 | feat(py-monitor): normalize listing url and strip query params
+2024-10-03 11:21:56 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
