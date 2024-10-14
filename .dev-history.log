@@ -1,1 +1,1 @@
-2024-10-14 20:32:05 +0800 | perf(matcher): precompile lowercase substring signatures
+2024-10-14 22:00:26 +0800 | feat(botfilter): wire middleware chain with cache lookup
