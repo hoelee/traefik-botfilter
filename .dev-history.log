@@ -1,1 +1,1 @@
-2024-10-18 17:54:01 +0800 | fix(java-cache): reject blank auth header before token parse
+2024-10-18 18:09:41 +0800 | perf(logger): buffer json log serialization
