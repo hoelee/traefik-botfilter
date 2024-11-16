@@ -1,1 +1,1 @@
-2024-11-16 11:55:30 +0800 | fix(py-monitor): handle missing currency symbol in price parser
+2024-11-16 13:27:12 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
