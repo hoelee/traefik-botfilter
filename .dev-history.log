@@ -1,1 +1,1 @@
-2024-12-01 16:37:58 +0800 | feat(py-monitor): normalize listing url and strip query params
+2024-12-01 18:20:50 +0800 | feat(config): support allowlist CIDR overrides
