@@ -1,1 +1,1 @@
-2024-12-02 10:06:39 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
+2024-12-02 17:42:43 +0800 | feat(botfilter): wire middleware chain with cache lookup
