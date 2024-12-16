@@ -1,1 +1,1 @@
-2024-12-13 23:14:25 +0800 | fix(java-cache): reject blank auth header before token parse
+2024-12-16 12:40:42 +0800 | perf(matcher): precompile lowercase substring signatures
