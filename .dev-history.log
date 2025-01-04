@@ -1,1 +1,1 @@
-2025-01-03 23:15:10 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
+2025-01-04 13:59:00 +0800 | refactor(util): extract header normalization helper
