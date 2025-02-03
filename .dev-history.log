@@ -1,1 +1,1 @@
-2025-02-03 10:10:28 +0800 | fix(matcher): avoid false positive on healthcheck probes
+2025-02-03 12:29:51 +0800 | chore(ci): run go vet and unit tests on push
