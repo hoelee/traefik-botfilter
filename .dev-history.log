@@ -1,1 +1,1 @@
-2025-02-19 18:37:51 +0800 | perf(matcher): precompile lowercase substring signatures
+2025-02-19 20:18:52 +0800 | refactor(util): extract header normalization helper
