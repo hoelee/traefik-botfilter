@@ -1,1 +1,1 @@
-2025-04-03 23:24:51 +0800 | test(cache): verify concurrent read/write under race detector
+2025-04-04 17:41:30 +0800 | feat(config): support allowlist CIDR overrides
