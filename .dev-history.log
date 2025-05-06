@@ -1,1 +1,1 @@
-2025-05-02 19:18:28 +0800 | test(botfilter): cover encoded path traversal edge cases
+2025-05-06 14:18:40 +0800 | refactor(util): extract header normalization helper
