@@ -1,1 +1,1 @@
-2025-05-14 10:03:04 +0800 | refactor(cache): shard eviction lock by ip prefix
+2025-05-14 10:19:24 +0800 | perf(matcher): precompile lowercase substring signatures
