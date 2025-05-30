@@ -1,1 +1,1 @@
-2025-05-30 13:19:40 +0800 | refactor(cache): shard eviction lock by ip prefix
+2025-05-30 17:19:49 +0800 | feat(shell-sync): add retry backoff for remote sync
