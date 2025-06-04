@@ -1,1 +1,1 @@
-2025-06-04 17:03:51 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
+2025-06-04 19:29:44 +0800 | feat(botfilter): wire middleware chain with cache lookup
