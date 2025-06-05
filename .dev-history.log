@@ -1,1 +1,1 @@
-2025-06-05 21:19:11 +0800 | refactor(util): extract header normalization helper
+2025-06-05 22:05:39 +0800 | feat(config): support allowlist CIDR overrides
