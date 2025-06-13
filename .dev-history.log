@@ -1,1 +1,1 @@
-2025-06-13 12:32:41 +0800 | refactor(cache): shard eviction lock by ip prefix
+2025-06-13 18:41:25 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
