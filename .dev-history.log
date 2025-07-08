@@ -1,1 +1,1 @@
-2025-07-08 13:28:09 +0800 | test(botfilter): cover encoded path traversal edge cases
+2025-07-08 16:44:24 +0800 | feat(config): support allowlist CIDR overrides
