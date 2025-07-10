@@ -1,1 +1,1 @@
-2025-07-10 11:49:58 +0800 | fix(matcher): avoid false positive on healthcheck probes
+2025-07-10 12:39:57 +0800 | fix(java-cache): reject blank auth header before token parse
