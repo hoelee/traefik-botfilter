@@ -1,1 +1,1 @@
-2025-07-10 17:59:45 +0800 | feat(shell-sync): add retry backoff for remote sync
+2025-07-10 19:03:21 +0800 | refactor(util): extract header normalization helper
