@@ -1,1 +1,1 @@
-2025-07-24 10:47:44 +0800 | fix(matcher): avoid false positive on healthcheck probes
+2025-07-24 12:36:31 +0800 | perf(logger): buffer json log serialization
