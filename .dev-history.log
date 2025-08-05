@@ -1,1 +1,1 @@
-2025-08-04 20:46:13 +0800 | docs(platform): update module layout and usage examples
+2025-08-05 17:39:27 +0800 | fix(java-cache): reject blank auth header before token parse
