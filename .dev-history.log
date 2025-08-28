@@ -1,1 +1,1 @@
-2025-08-28 18:08:25 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
+2025-08-28 20:16:42 +0800 | chore(ci): run go vet and unit tests on push
