@@ -1,1 +1,1 @@
-2025-09-29 20:14:21 +0800 | feat(shell-sync): add retry backoff for remote sync
+2025-09-30 12:30:46 +0800 | fix(py-monitor): handle missing currency symbol in price parser
