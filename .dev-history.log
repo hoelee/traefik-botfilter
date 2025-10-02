@@ -1,1 +1,1 @@
-2025-10-02 19:38:25 +0800 | feat(shell-sync): add retry backoff for remote sync
+2025-10-02 20:50:20 +0800 | test(botfilter): cover encoded path traversal edge cases
