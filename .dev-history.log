@@ -1,1 +1,1 @@
-2025-10-08 17:52:02 +0800 | refactor(cache): shard eviction lock by ip prefix
+2025-10-09 10:39:57 +0800 | feat(config): support allowlist CIDR overrides
