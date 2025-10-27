@@ -1,1 +1,1 @@
-2025-10-27 16:14:37 +0800 | test(cache): verify concurrent read/write under race detector
+2025-10-27 17:21:40 +0800 | fix(java-cache): reject blank auth header before token parse
