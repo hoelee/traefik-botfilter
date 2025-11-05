@@ -1,1 +1,1 @@
-2025-11-05 19:51:22 +0800 | feat(java-cache): configure Caffeine TTL and max weight
+2025-11-05 22:23:27 +0800 | feat(config): support allowlist CIDR overrides
