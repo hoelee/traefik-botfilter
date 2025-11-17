@@ -1,1 +1,1 @@
-2025-11-17 10:26:25 +0800 | test(cache): verify concurrent read/write under race detector
+2025-11-17 12:00:40 +0800 | feat(botfilter): wire middleware chain with cache lookup
