@@ -1,1 +1,1 @@
-2025-11-30 20:01:18 +0800 | test(botfilter): cover encoded path traversal edge cases
+2025-12-01 10:13:33 +0800 | perf(logger): buffer json log serialization
