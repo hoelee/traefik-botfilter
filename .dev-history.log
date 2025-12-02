@@ -1,1 +1,1 @@
-2025-12-01 22:51:34 +0800 | fix(matcher): avoid false positive on healthcheck probes
+2025-12-02 15:26:32 +0800 | feat(java-cache): configure Caffeine TTL and max weight
