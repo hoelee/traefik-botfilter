@@ -1,1 +1,1 @@
-2025-12-16 09:39:59 +0800 | fix(matcher): avoid false positive on healthcheck probes
+2025-12-16 12:04:40 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
