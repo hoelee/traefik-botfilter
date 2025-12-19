@@ -1,1 +1,1 @@
-2025-12-19 10:48:37 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
+2025-12-19 11:13:34 +0800 | fix(java-cache): reject blank auth header before token parse
