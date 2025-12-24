@@ -1,1 +1,1 @@
-2025-12-24 12:28:33 +0800 | docs(platform): update module layout and usage examples
+2025-12-24 13:54:26 +0800 | chore(ci): run go vet and unit tests on push
