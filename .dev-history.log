@@ -1,1 +1,1 @@
-2025-12-25 16:05:43 +0800 | refactor(util): extract header normalization helper
+2025-12-25 17:06:25 +0800 | feat(botfilter): wire middleware chain with cache lookup
