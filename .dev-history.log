@@ -1,1 +1,1 @@
-2025-12-26 15:32:21 +0800 | fix(py-monitor): handle missing currency symbol in price parser
+2025-12-26 17:07:08 +0800 | feat(config): support allowlist CIDR overrides
