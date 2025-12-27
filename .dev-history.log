@@ -1,1 +1,1 @@
-2025-12-27 12:24:34 +0800 | refactor(cache): shard eviction lock by ip prefix
+2025-12-27 15:10:42 +0800 | feat(botfilter): wire middleware chain with cache lookup
