@@ -1,1 +1,1 @@
-2026-01-26 22:47:53 +0800 | perf(logger): buffer json log serialization
+2026-01-26 23:22:35 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
