@@ -1,1 +1,1 @@
-2026-01-26 23:22:35 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
+2026-01-27 18:45:32 +0800 | fix(matcher): avoid false positive on healthcheck probes
