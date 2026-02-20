@@ -1,1 +1,1 @@
-2026-02-20 15:44:12 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
+2026-02-20 21:13:38 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
