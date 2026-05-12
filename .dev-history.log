@@ -1,1 +1,1 @@
-2026-05-12 15:07:50 +0800 | feat(java-cache): configure Caffeine TTL and max weight
+2026-05-12 15:08:50 +0800 | fix(botfilter): preserve X-Forwarded-For client IP parsing
