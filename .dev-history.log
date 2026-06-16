@@ -1,1 +1,1 @@
-2026-06-16 19:27:23 +0800 | refactor(util): extract header normalization helper
+2026-06-16 22:45:59 +0800 | fix(py-monitor): handle missing currency symbol in price parser
