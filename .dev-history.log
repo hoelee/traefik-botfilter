@@ -1,1 +1,1 @@
-2026-06-22 20:51:39 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
+2026-06-22 20:58:30 +0800 | feat(java-cache): configure Caffeine TTL and max weight
