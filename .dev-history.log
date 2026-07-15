@@ -1,1 +1,1 @@
-2026-07-15 15:04:51 +0800 | test(botfilter): cover encoded path traversal edge cases
+2026-07-15 17:03:54 +0800 | feat(java-cache): configure Caffeine TTL and max weight
