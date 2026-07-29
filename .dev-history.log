@@ -1,1 +1,1 @@
-2026-07-29 15:19:34 +0800 | docs(platform): update module layout and usage examples
+2026-07-29 15:59:40 +0800 | feat(botfilter): wire middleware chain with cache lookup
