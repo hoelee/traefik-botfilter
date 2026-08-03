@@ -1,6 +1,6 @@
-// Package botfilter is a Traefik middleware plugin that blocks known scans
+// Package traefik_botfilter is a Traefik middleware plugin that blocks known scans
 // and applies a bounded, in-memory per-IP suspicion score.
-package botfilter
+package traefik_botfilter
 
 import (
 	"bufio"

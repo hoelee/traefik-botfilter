@@ -1,0 +1,43 @@
+# Dynamic configuration. Start a backend on 127.0.0.1:8081, then request
+# http://example.localhost/ through Traefik to exercise the middleware.
+http:
+  routers:
+    example:
+      rule: Host(`example.localhost`)
+      entryPoints:
+        - web
+      middlewares:
+        - botfilter
+      service: example-backend
+
+  middlewares:
+    botfilter:
+      plugin:
+        botfilter:
+          requireUserAgent: true
+          requireAccept: true
+          browserValidation: true
+          temporaryBanMinutes: 15
+          scoreThreshold: 100
+          scoreWindowMinutes: 15
+          blockedUserAgents:
+            - sqlmap
+            - nikto
+            - masscan
+          blockedPaths:
+            - /.env
+            - /.git
+            - /wp-login.php
+            - /xmlrpc.php
+            - /phpmyadmin
+          blockedExtensions:
+            - .env
+            - .bak
+            - .zip
+          logBlockedRequests: true
+
+  services:
+    example-backend:
+      loadBalancer:
+        servers:
+          - url: http://127.0.0.1:8081

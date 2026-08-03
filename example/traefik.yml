@@ -1,0 +1,16 @@
+# Static Traefik configuration for testing the plugin from a local checkout.
+entryPoints:
+  web:
+    address: ":80"
+
+providers:
+  file:
+    filename: /etc/traefik/dynamic.yml
+
+api:
+  dashboard: true
+
+experimental:
+  localPlugins:
+    botfilter:
+      moduleName: github.com/hoelee/traefik-botfilter

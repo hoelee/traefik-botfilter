@@ -1,4 +1,4 @@
-package botfilter
+package traefik_botfilter
 
 import (
 	"fmt"

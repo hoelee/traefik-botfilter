@@ -1,64 +1,32 @@
 # Traefik Bot Filter
 
-> A lightweight Traefik middleware plugin that blocks scanners, malformed HTTP requests, and suspicious clients before they reach your backend.
+[![Go](https://img.shields.io/badge/Go-1.20+-00ADD8?logo=go)](https://go.dev/)
+[![License](https://img.shields.io/github/license/hoelee/traefik-botfilter)](LICENSE)
 
-![Go](https://img.shields.io/badge/Go-1.20+-00ADD8?logo=go)
-![Traefik](https://img.shields.io/badge/Traefik-v3.x-24A1C1?logo=traefikproxy)
-![License](https://img.shields.io/github/license/hoelee/traefik-botfilter)
-![GitHub Release](https://img.shields.io/github/v/release/hoelee/traefik-botfilter)
-
-`traefik-botfilter` is a dependency-free Traefik middleware plugin designed to stop common Internet scans, malformed HTTP requests, and low-quality bots before they reach your applications.
-
-Unlike a traditional Web Application Firewall (WAF), Bot Filter focuses on lightweight request validation and heuristic scoring. It requires **no Redis, database, or external services**, making it suitable for self-hosted environments, home labs, and production deployments.
+`traefik-botfilter` is a dependency-free Traefik middleware plugin that rejects common scanner requests and temporarily bans suspicious clients with bounded, in-memory per-IP scoring. It is a lightweight first layer of protection, not a replacement for a WAF.
 
 ## Features
 
-- 🚫 Block common scanner paths (`/.env`, `/wp-login.php`, `/phpmyadmin`, etc.)
-- 🤖 Detect and reject known bot User-Agents
-- 📄 Require valid HTTP request headers
-- 🧠 Configurable heuristic scoring system
-- ⛔ Temporary in-memory IP banning
-- 🌐 CIDR whitelist support
-- 🔒 Browser header validation
-- ⚡ Dependency-free (Go standard library only)
-- 💾 Bounded memory usage
-- 🔄 Reverse proxy aware
-- 📦 No Redis or database required
+- Blocks configured paths, extensions, and User-Agent substrings before the request reaches the backend.
+- Optionally requires `User-Agent`, `Accept`, and `Host` headers.
+- Detects internally inconsistent browser User-Agents.
+- Scores suspicious requests and backend `404` responses, then applies a temporary ban.
+- Supports CIDR allowlists and trusted proxy client-IP headers.
+- Uses only the Go standard library and keeps its per-client cache bounded.
 
----
+## Install From The Plugin Catalog
 
-# Quick Start
-
-## 1. Enable the plugin
-
-### Local Plugin (Development)
-
-```yaml
-experimental:
-  localPlugins:
-    botfilter:
-      moduleName: github.com/hoelee/traefik-botfilter
-```
-
-### Plugin Catalog (Future)
-
-After the plugin is available in the official Traefik Plugin Catalog:
+After a release tag has been accepted by the catalog, declare the plugin in Traefik's static configuration:
 
 ```yaml
 experimental:
   plugins:
     botfilter:
       moduleName: github.com/hoelee/traefik-botfilter
-      version: v1.0.0
+      version: v1.0.0 # Replace with a published release tag.
 ```
 
-> **Note**
->
-> The Plugin Catalog installation only works after this repository has been indexed by the official Traefik Plugin Catalog.
-
----
-
-## 2. Configure the middleware
+Declare a middleware in dynamic configuration and attach it to a router:
 
 ```yaml
 http:
@@ -66,571 +34,137 @@ http:
     botfilter:
       plugin:
         botfilter:
-
-          statusCode: 403
-
           requireUserAgent: true
           requireAccept: true
-          requireHost: true
-
-          browserValidation: true
-
-          temporaryBanMinutes: 15
-
-          scoreThreshold: 100
-          scoreWindowMinutes: 15
-
-          whitelistCIDRs:
-            - 127.0.0.1/32
-            - 192.168.0.0/16
-
+          blockedPaths:
+            - /.env
+            - /.git
           blockedUserAgents:
-            - curl
-            - wget
-            - python
-            - Go-http-client
             - sqlmap
             - nikto
-            - masscan
 
-          blockedPaths:
-            - /.env
-            - /.git
-            - /wp-login.php
-            - /xmlrpc.php
-            - /phpmyadmin
-
-          blockedExtensions:
-            - .env
-            - .bak
-            - .zip
-
-          randomArticlePatterns:
-            - /content/
-
-          logBlockedRequests: false
-```
-
----
-
-## 3. Attach the middleware
-
-```yaml
-http:
   routers:
-
-    website:
-      rule: Host(`example.com`)
-      service: website
-
+    app:
+      rule: Host(`app.example.com`)
       middlewares:
         - botfilter
+      service: app
 ```
 
----
+Plugin names have two distinct roles above: `botfilter` is the local Traefik plugin identifier, while `github.com/hoelee/traefik-botfilter` is its module path. Keep the identifier the same under `experimental.plugins` and `http.middlewares.<name>.plugin`.
 
-# Installation
+## Local Development
 
-## Local Plugin
+Traefik local plugins must be placed under a directory matching the module path:
 
-Clone the repository into Traefik's local plugin directory.
-
-```
+```text
 plugins-local/
-└── src/
-    └── github.com/
-        └── hoelee/
-            └── traefik-botfilter/
-                ├── .traefik.yml
-                ├── go.mod
-                ├── config.go
-                ├── botfilter.go
-                └── ...
+  src/
+    github.com/
+      hoelee/
+        traefik-botfilter/
+          .traefik.yml
+          go.mod
+          botfilter.go
+          ...
 ```
 
-Docker Compose:
-
-```yaml
-services:
-
-  traefik:
-
-    image: traefik:v3.5
-
-    restart: unless-stopped
-
-    volumes:
-
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-
-      - ./traefik.yml:/etc/traefik/traefik.yml:ro
-
-      - ./dynamic.yml:/etc/traefik/dynamic.yml:ro
-
-      - ./plugins-local:/plugins-local:ro
-```
-
-Restart Traefik after copying the plugin source.
-
----
-
-# Example Configuration
-
-## traefik.yml
+Use `localPlugins` instead of `plugins` in static configuration:
 
 ```yaml
 experimental:
-
   localPlugins:
-
     botfilter:
-
       moduleName: github.com/hoelee/traefik-botfilter
 ```
 
----
+## Example
 
-## dynamic.yml
+[`example/traefik.yml`](example/traefik.yml) enables the local plugin and reads [`example/dynamic.yml`](example/dynamic.yml). The dynamic configuration protects `example.localhost` and forwards accepted requests to a backend listening on `127.0.0.1:8081`.
 
-```yaml
-http:
-  middlewares:
-    botfilter:
-      plugin:
-        botfilter:
-          statusCode: 403
-          requireUserAgent: true
-          requireAccept: true
-          requireHost: true
-          browserValidation: true
-          temporaryBanMinutes: 15
-          scoreThreshold: 100
-          scoreWindowMinutes: 15
-          whitelistCIDRs:
-            - 127.0.0.1/32
-            - 192.168.0.0/16
-          blockedUserAgents:
-            - curl
-            - wget
-            - python
-            - Go-http-client
-          blockedPaths:
-            - /.env
-            - /.git
-            - /wp-login.php
-            - /xmlrpc.php
-          blockedExtensions:
-            - .env
-            - .bak
-            - .zip
-          logBlockedRequests: false
+Start a test backend, for example:
+
+```bash
+go run github.com/traefik/whoami@latest --port 8081
 ```
 
-# Configuration Reference
+Start Traefik with the example configuration, making the repository available at `/plugins-local/src/github.com/hoelee/traefik-botfilter` in the Traefik process or container. Then test it:
+
+```bash
+# A browser-like request reaches the backend.
+curl -i http://example.localhost/ \
+  -H "User-Agent: Mozilla/5.0 Chrome/120.0 AppleWebKit/537.36 Safari/537.36" \
+  -H "Accept: text/html"
+
+# Scanner paths and blocked user agents receive 403.
+curl -i http://example.localhost/.env
+curl -i http://example.localhost/ -A sqlmap
+```
+
+## Configuration
 
 | Option | Default | Description |
-|---------|:-------:|-------------|
-| `statusCode` | `403` | HTTP status code returned for blocked requests. |
-| `requireUserAgent` | `false` | Reject requests without a `User-Agent` header. |
-| `requireAccept` | `false` | Reject requests without an `Accept` header. |
-| `requireHost` | `false` | Reject requests without a `Host` header. |
-| `browserValidation` | `false` | Detect inconsistent browser headers. |
-| `temporaryBanMinutes` | `15` | Temporary in-memory IP ban duration. |
-| `scoreThreshold` | `100` | Score required before an IP is temporarily banned. |
-| `scoreWindowMinutes` | `15` | Sliding window used for score accumulation. |
-| `maxTrackedIPs` | `50000` | Maximum number of IP addresses stored in memory. |
-| `maxScoreEventsPerIP` | `16` | Maximum scoring events stored per client. |
-| `whitelistCIDRs` | None | Clients that bypass all filtering. |
-| `blockedUserAgents` | None | User-Agent substrings immediately rejected. |
-| `blockedPaths` | None | URL paths that are immediately rejected. |
-| `blockedExtensions` | None | Dangerous file extensions to reject. |
-| `randomArticlePatterns` | `/content/` | URL prefixes that contribute to suspicion scoring. |
-| `clientIPHeader` | Empty | Header containing the real client IP when behind trusted proxies. |
-| `trustedProxyCIDRs` | None | Trusted proxies allowed to provide `clientIPHeader`. |
-| `logBlockedRequests` | `false` | Log rejected requests to the Traefik log. |
-
-## Score Configuration
-
-The following values determine how much suspicion is added for different request characteristics.
-
-| Option | Default |
-|---------|---------|
-| `emptyUserAgentScore` | `40` |
-| `missingAcceptScore` | `20` |
-| `blockedUserAgentScore` | `80` |
-| `badPathScore` | `50` |
-| `randomArticleScore` | `15` |
-| `notFoundScore` | `40` |
-| `fakeBrowserScore` | `40` |
-
-Setting any score to `0` disables that individual signal without disabling the rest of the protection.
-
----
-
-# How It Works
-
-Bot Filter combines immediate blocking rules with a lightweight heuristic scoring engine.
-
-```text
-Incoming Request
-        │
-        ▼
-Required Header Validation
-        │
-        ▼
-Blocked Path Detection
-        │
-        ▼
-Blocked User-Agent Detection
-        │
-        ▼
-Browser Validation
-        │
-        ▼
-Heuristic Scoring
-        │
-        ▼
-Score ≥ Threshold ?
-   ┌────┴────┐
-   │         │
-   ▼         ▼
-Reject    Forward
-403       Backend
-```
-
-Each client accumulates a temporary suspicion score.
-
-When the score reaches the configured threshold, the client is temporarily banned for the configured duration.
-
-The score automatically expires using a sliding time window, allowing legitimate users to recover without manual intervention.
-
----
-
-# Performance
-
-Bot Filter is intentionally lightweight.
-
-| Item | Value |
-|------|------:|
-| Dependencies | None |
-| External Services | None |
-| Redis | No |
-| Database | No |
-| Background Workers | None |
-| Thread Safe | Yes |
-| Memory Usage | Bounded |
-| Reverse Proxy Support | Yes |
-
-The plugin only uses the Go standard library and stores a bounded amount of per-client state.
-
----
-
-# Limitations
-
-Bot Filter is **not** intended to replace a full Web Application Firewall (WAF).
-
-It is designed to eliminate:
-
-- Internet scanners
-- Opportunistic bots
-- Malformed HTTP requests
-- Common exploit probes
-- Low-quality scraping traffic
-
-It cannot reliably stop:
-
-- Large botnets
-- Residential proxy networks
-- Human-assisted attacks
-- Browser automation that perfectly mimics legitimate traffic
-
-For those scenarios, combine Bot Filter with:
-
-- Cloudflare
-- Traefik Rate Limit
-- Fail2Ban
-- Reverse Proxy Firewalls
-- CDN Bot Protection
-
----
-
-# Examples
-
-This directory contains working examples for running **Traefik Bot Filter**.
-
-## Files
-
-| File | Description |
-|------|-------------|
-| `docker-compose.yml` | Complete Docker Compose example using Traefik and the local plugin. |
-| `traefik.yml` | Static Traefik configuration. |
-| `dynamic.yml` | Dynamic configuration containing the Bot Filter middleware. |
-
----
-
-## Quick Start
-
-Clone this repository:
-
-```bash
-git clone https://github.com/hoelee/traefik-botfilter.git
-```
-
-Copy the plugin into Traefik's local plugin directory:
-
-```text
-plugins-local/
-└── src/
-    └── github.com/
-        └── hoelee/
-            └── traefik-botfilter/
-```
-
-Start the example:
-
-```bash
-docker compose up -d
-```
-
-Open the dashboard:
-
-```
-http://localhost:8080/dashboard/
-```
-
-Example service:
-
-```
-http://localhost/
-```
-
----
-
-## Middleware Flow
-
-```
-Internet
-    │
-    ▼
-Traefik
-    │
-    ▼
-Bot Filter
-    │
-    ▼
-Backend Service
-```
-
----
-
-## Plugin Configuration
-
-The middleware is configured in **dynamic.yml**.
-
-The plugin is enabled in **traefik.yml**.
-
----
-
-## Testing
-
-### Normal Browser
-
-```
-curl http://localhost/
-```
-
-Expected:
-
-```
-HTTP/1.1 200 OK
-```
-
----
-
-### Missing User-Agent
-
-```
-curl -H "User-Agent:" http://localhost/
-```
-
-Expected:
-
-```
-HTTP/1.1 403 Forbidden
-```
-
----
-
-### Blocked Path
-
-```
-curl http://localhost/.env
-```
-
-Expected:
-
-```
-HTTP/1.1 403 Forbidden
-```
-
----
-
-### Blocked User-Agent
-
-```
-curl -A "sqlmap" http://localhost/
-```
-
-Expected:
-
-```
-HTTP/1.1 403 Forbidden
-```
-
----
-
-## Notes
-
-These examples use the **local plugin** loader.
-
-After the plugin is published in the official Traefik Plugin Catalog, replace:
+| --- | --- | --- |
+| `statusCode` | `403` | HTTP status returned for blocked requests. |
+| `requireUserAgent` | `false` | Ban clients with no `User-Agent`. |
+| `requireAccept` | `false` | Ban clients with no `Accept` header. |
+| `requireHost` | `false` | Ban requests with no `Host`. |
+| `browserValidation` | `false` | Score inconsistent browser User-Agents. |
+| `temporaryBanMinutes` | `15` | Duration of a temporary ban. |
+| `scoreThreshold` | `100` | Score at which a client is banned. |
+| `scoreWindowMinutes` | `15` | Time window for score accumulation. |
+| `maxTrackedIPs` | `50000` | Maximum cache entries. |
+| `maxScoreEventsPerIP` | `16` | Maximum score events retained per client. |
+| `whitelistCIDRs` | none | CIDRs that bypass all filtering. |
+| `blockedUserAgents` | none | Case-insensitive User-Agent substrings to block. |
+| `blockedPaths` | none | Paths and path prefixes to block. |
+| `blockedExtensions` | none | File extensions to block. |
+| `randomArticlePatterns` | `/content/` | Path prefixes that add a small first-request score. |
+| `clientIPHeader` | empty | Client-IP header accepted from trusted proxies. |
+| `trustedProxyCIDRs` | none | Proxy CIDRs allowed to supply `clientIPHeader`. |
+| `logBlockedRequests` | `false` | Log blocked requests through Traefik's process logger. |
+
+Score options are `emptyUserAgentScore` (40), `missingAcceptScore` (20), `blockedUserAgentScore` (80), `badPathScore` (50), `randomArticleScore` (15), `notFoundScore` (40), and `fakeBrowserScore` (40). Set a score to `0` to disable that signal.
+
+## Proxy Configuration
+
+Only configure `clientIPHeader` when Traefik receives traffic from a proxy you trust. Also set `trustedProxyCIDRs`; the plugin ignores the header for all other remote addresses to prevent clients from choosing their own cache identity.
 
 ```yaml
-experimental:
-  localPlugins:
-    botfilter:
-      moduleName: github.com/hoelee/traefik-botfilter
+clientIPHeader: X-Forwarded-For
+trustedProxyCIDRs:
+  - 10.0.0.0/8
 ```
 
-with:
+Ensure the trusted proxy overwrites, rather than appends untrusted values to, that header.
 
-```yaml
-experimental:
-  plugins:
-    botfilter:
-      moduleName: github.com/hoelee/traefik-botfilter
-      version: v1.0.0
-```
+## Publishing To The Catalog
 
----
-
-# Best Practices
-
-For production deployments:
-
-- Place Bot Filter before Rate Limit middleware.
-- Protect the origin server from direct Internet access.
-- Use HTTPS only.
-- Enable access logs only when required.
-- Keep Traefik updated.
-- Use a CDN or WAF for Internet-facing services.
-
-Recommended middleware order:
-
-```yaml
-middlewares:
-  - botfilter
-  - ratelimit
-  - headers
-  - compress
-```
-
----
-
-# Roadmap
-
-## v1.0
-
-- Request validation
-- User-Agent filtering
-- Browser validation
-- Path filtering
-- Temporary IP bans
-- Heuristic scoring
-
-## v1.1
-
-- Regular expression matching
-- Prometheus metrics
-- Configurable response body
-- IPv6 optimizations
-- Better browser fingerprint validation
-
-## v2.0
-
-- Redis shared cache
-- Multi-instance synchronization
-- Dashboard statistics
-- ASN filtering
-- GeoIP filtering
-- Optional CAPTCHA integration
-
----
-
-# Development
-
-Clone the repository:
+The repository must be public, have the `traefik-plugin` GitHub topic, contain a valid root `.traefik.yml` manifest, and have an annotated or lightweight Git tag for each release. Push a new semantic-version tag after merging the package-name fix, for example:
 
 ```bash
-git clone https://github.com/hoelee/traefik-botfilter.git
-cd traefik-botfilter
+git tag v1.0.1
+git push origin v1.0.1
 ```
 
-Run tests:
+The package is intentionally named `traefik_botfilter`: Traefik's Yaegi loader derives that Go identifier from the final module path segment, replacing `-` with `_`. This must remain aligned with `github.com/hoelee/traefik-botfilter` for `CreateConfig` and `New` to load from the catalog.
+
+## Development
 
 ```bash
 go test ./...
-```
-
-Run static analysis:
-
-```bash
 go vet ./...
+gofmt -w *.go
 ```
 
-Format source code:
+## Limitations
 
-```bash
-go fmt ./...
-```
+This plugin reduces opportunistic scans and low-effort bot traffic. It does not reliably protect against distributed botnets, residential proxies, sophisticated browser automation, or application vulnerabilities. Pair it with rate limiting, a CDN or WAF, TLS, and application-level security controls for Internet-facing services.
 
----
+## Contributing
 
-# Contributing
+Issues and pull requests are welcome. Include the Traefik version, plugin version, relevant configuration, and logs when reporting a problem.
 
-Contributions are welcome.
+## License
 
-If you discover a bug, have a feature request, or would like to improve the plugin, please open an Issue or Pull Request.
-
-Please include:
-
-- Traefik version
-- Go version
-- Plugin version
-- Example configuration
-- Relevant logs
-
----
-
-# License
-
-This project is licensed under the MIT License.
-
-See the [LICENSE](LICENSE) file for details.
-
----
-
-# Acknowledgements
-
-- Traefik Labs
-- Go Community
-- Contributors and users of the project
-
----
-
-## Star the Project
-
-If this plugin helps protect your services, please consider giving the repository a ⭐ on GitHub.
-
-It helps others discover the project and supports future development.
-
+This project is licensed under the [MIT License](LICENSE).
