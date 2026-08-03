@@ -23,7 +23,7 @@ experimental:
   plugins:
     botfilter:
       moduleName: github.com/hoelee/traefik-botfilter
-      version: v1.0.0 # Replace with a published release tag.
+      version: v0.1.1
 ```
 
 Declare a middleware in dynamic configuration and attach it to a router:
