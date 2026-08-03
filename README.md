@@ -167,4 +167,4 @@ Issues and pull requests are welcome. Include the Traefik version, plugin versio
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [Apache-2.0 license](LICENSE).
