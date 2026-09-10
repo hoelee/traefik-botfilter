@@ -1,1 +1,1 @@
-2026-09-10 21:51:18 +0800 | fix(py-monitor): handle missing currency symbol in price parser
+2026-09-10 22:33:43 +0800 | perf(matcher): precompile lowercase substring signatures
