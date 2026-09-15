@@ -1,1 +1,1 @@
-2026-09-14 22:04:35 +0800 | test(cache): verify concurrent read/write under race detector
+2026-09-15 10:45:58 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
