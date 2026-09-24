@@ -1,1 +1,1 @@
-2026-09-24 13:10:50 +0800 | test(botfilter): cover encoded path traversal edge cases
+2026-09-24 14:01:49 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
