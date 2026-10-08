@@ -1,1 +1,1 @@
-2026-10-08 18:35:04 +0800 | feat(java-cache): configure Caffeine TTL and max weight
+2026-10-08 20:36:42 +0800 | perf(matcher): precompile lowercase substring signatures
