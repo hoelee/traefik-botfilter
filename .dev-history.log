@@ -1,1 +1,1 @@
-2026-10-21 19:09:28 +0800 | feat(config): support allowlist CIDR overrides
+2026-10-21 19:10:59 +0800 | fix(shell-sync): quote paths with spaces in rsync wrapper
