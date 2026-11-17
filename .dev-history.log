@@ -1,1 +1,1 @@
-2026-11-16 13:55:50 +0800 | feat(java-cache): configure Caffeine TTL and max weight
+2026-11-17 11:21:16 +0800 | fix(java-cache): reject blank auth header before token parse
