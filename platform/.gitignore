@@ -1,0 +1,4 @@
+java-cache/target/
+**/__pycache__/
+*.pyc
+.env

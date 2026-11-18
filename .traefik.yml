@@ -1,0 +1,28 @@
+displayName: Bot Filter
+type: middleware
+import: github.com/hoelee/traefik-botfilter
+summary: Rejects common scans and temporarily bans suspicious clients using bounded per-IP scoring.
+testData:
+  statusCode: 403
+  requireUserAgent: true
+  requireAccept: true
+  requireHost: true
+  browserValidation: true
+  whitelistCIDRs:
+    - 192.168.0.0/16
+    - 10.0.0.0/8
+  temporaryBanMinutes: 15
+  blockedUserAgents:
+    - curl
+    - wget
+    - python
+  blockedPaths:
+    - /.env
+    - /.git
+    - /wp-login.php
+    - /xmlrpc.php
+    - /phpmyadmin
+  blockedExtensions:
+    - .env
+    - .bak
+    - .zip
